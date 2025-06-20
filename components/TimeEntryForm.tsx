@@ -15,8 +15,6 @@ interface TimeEntryFormProps {
   onEditDone?: () => void;
   timerActive: boolean;
   timerElapsed: number;
-  onTimerStart: () => void;
-  onTimerStop: () => void;
   onTimerReset: () => void;
 }
 
@@ -26,8 +24,6 @@ export default function TimeEntryForm({
   onEditDone,
   timerActive,
   timerElapsed,
-  onTimerStart,
-  onTimerStop,
   onTimerReset,
 }: TimeEntryFormProps) {
   const [taskName, setTaskName] = useState("");
@@ -53,20 +49,7 @@ export default function TimeEntryForm({
       const hours = Math.round((timerElapsed / 3600000) * 100) / 100;
       setHoursWorked(hours);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timerActive, timerElapsed]);
-
-  // (No custom toast logic needed)
-
-  const formatElapsed = (ms: number) => {
-    const totalSeconds = Math.floor(ms / 1000);
-    const h = Math.floor(totalSeconds / 3600);
-    const m = Math.floor((totalSeconds % 3600) / 60);
-    const s = totalSeconds % 60;
-    return `${h.toString().padStart(2, "0")}:${m
-      .toString()
-      .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

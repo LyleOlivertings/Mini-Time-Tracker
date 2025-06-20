@@ -90,8 +90,6 @@ export default function HomePage() {
         onEditDone={handleEditDone}
         timerActive={timerActive}
         timerElapsed={timerElapsed}
-        onTimerStart={handleTimerStart}
-        onTimerStop={handleTimerStop}
         onTimerReset={handleTimerReset}
       />
       <TimeEntryList
