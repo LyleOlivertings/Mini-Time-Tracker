@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Looped Mini Time Tracker
+
+A modern, full-stack time tracking app built with Next.js, MongoDB, and TypeScript. Track your work sessions, manage time entries, and use a built-in timer—all with a clean, responsive UI and instant feedback.
+
+---
+
+## Features
+
+### Timer
+- **Fixed Timer Card:** Always visible in the bottom-right corner for quick access.
+- **Start, Stop, Reset:** Easily control your work timer.
+- **Accurate Time Tracking:** Timer counts in real time and displays elapsed time in hours, minutes, and seconds.
+- **Auto-fill Hours:** When you stop the timer, the elapsed time is automatically filled into the entry form.
+
+### Time Entry Management
+- **Add Entry:** Log new work sessions with a task name and hours worked.
+- **Edit Entry:** Update existing entries directly from the list.
+- **Delete Entry:** Remove entries you no longer need.
+- **List View:** See all your time entries in a clean, scrollable list.
+
+### User Experience
+- **Instant Feedback:** All actions (add, edit, delete) update the UI immediately.
+- **Validation:** Prevents blank task names and zero/negative hours, with clear error messages.
+- **Error Notifications:** Uses [react-hot-toast](https://react-hot-toast.com/) for dismissible, accessible error toasts.
+- **Responsive Design:** Works well on desktop and mobile devices.
+- **Accessible Controls:** Buttons and forms are keyboard-friendly and screen reader accessible.
+
+### Backend & API
+- **MongoDB Integration:** All time entries are stored in a MongoDB database.
+- **RESTful API:** 
+  - `GET /api/time` — List all time entries
+  - `POST /api/time` — Add a new time entry
+  - `GET /api/time/[id]` — Get a single time entry by ID
+  - `PUT /api/time/[id]` — Update a time entry by ID
+  - `DELETE /api/time/[id]` — Delete a time entry by ID
+- **Robust Error Handling:** API returns clear error messages for invalid requests or database issues.
+
+### Technology
+- **Next.js App Router:** Modern file-based routing and API endpoints.
+- **TypeScript:** Type-safe codebase for both frontend and backend.
+- **react-hot-toast:** For beautiful, non-blocking notifications.
+- **Geist Font:** Clean, modern typography.
+
+---
+
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set up environment variables
+
+Create a `.env` file in the root directory and add your MongoDB connection string:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+- **Timer:** Use the timer card in the bottom-right to track your work. Start, stop, and reset as needed.
+- **Add Entry:** Fill out the form to add a new time entry. Validation errors are shown as toast notifications.
+- **Edit Entry:** Click an entry to edit it. Updates are sent to the backend via the `/api/time/[id]` endpoint.
+- **Delete Entry:** Remove entries with a single click.
+- **Error Handling:** All validation and server errors are displayed using react-hot-toast.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `GET /api/time` — List all time entries
+- `POST /api/time` — Add a new time entry
+- `GET /api/time/[id]` — Get a single time entry by ID
+- `PUT /api/time/[id]` — Update a time entry by ID
+- `DELETE /api/time/[id]` — Delete a time entry by ID
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [react-hot-toast](https://react-hot-toast.com/)
+- [Geist Font](https://vercel.com/font)
+
+---
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## License
+
+[MIT](LICENSE)
